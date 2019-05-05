@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AJAX POST Method example</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<script type="text/javascript">
+		function updateText(){
+			
+		var current_text = $("#user_text").val();
+		//$.post( server_url , request_data , function ( response_data , status , XMLHttpRequest ) , dataType )
+ 			$.post("http://localhost/Ajax_GET_POST_Methods_Jquery/POST_Server.php", "user_text="+current_text,
+			function( response, status, http){
+			$("#server_response").val(response);
+			},"text");	
+		};
+		</script>
+	</head>
+	<body>
+	    <!--This basically says that as soon as user enters text in the input field we will call updateText function-->
+		<div>Input text: <input type="text" id="user_text" name="user_text" onkeyup="updateText();"></div><br>
+		<div>Server Response:<input type="text" id="server_response" name="server_response" readonly /></div>
+	</body>
+</html> 
